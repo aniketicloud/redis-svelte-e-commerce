@@ -15,7 +15,9 @@ const run = async () => {
 		year: 1960
 	});
 
-	const commands = [1, 2, 3].map((id) => client.hGetAll(`car${id}`));
+	const commands = [1, 2, 3].map((id) => {
+		return client.hGetAll('car' + id);
+	});
 
 	const results = await Promise.all(commands);
 
